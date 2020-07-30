@@ -1,0 +1,11 @@
+2020-07-29T14:35:20+07:00 SYSTEMS - main.go:23: Starting Application
+2020-07-29T14:39:44+07:00 SYSTEMS - main.go:23: Starting Application
+2020-07-29T14:42:49+07:00 SYSTEMS - main.go:23: Starting Application
+2020-07-29T14:47:17+07:00 SYSTEMS - main.go:23: Starting Application
+2020-07-29T15:01:58+07:00 SYSTEMS - main.go:23: Starting Application
+2020-07-29T15:12:24+07:00 SYSTEMS - main.go:23: Starting Application
+2020-07-29T15:17:50+07:00 SYSTEMS - main.go:23: Starting Application
+2020-07-29T15:17:50+07:00 SYSTEMS - MasterBrendsController.go:18: Error 1054: Unknown column 'id' in 'field list'
+2020-07-29T15:17:50+07:00 SYSTEMS - MasterBrendsController.go:18: Error 1054: Unknown column 'id' in 'field list'
+2020-07-29T15:17:50+07:00 SYSTEMS - MasterBrendsController.go:18: Error 1054: Unknown column 'id' in 'field list'
+2020-07-29T15:17:50+07:00 SYSTEMS - MasterBrendsController.go:18: Error 1054: Unknown column 'id' in 'field list'
