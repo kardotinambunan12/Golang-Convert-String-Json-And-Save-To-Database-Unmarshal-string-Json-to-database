@@ -2,7 +2,9 @@ package controllers
 
 import (
 	"time"
+	"crypto/md5"
 	"strconv"
+	"encoding/hex"
 	"github.com/labstack/echo"	
 	logger    "../../customlogger"
 )
@@ -20,6 +22,15 @@ type DB struct {
 }
 func AppIndex(c echo.Context) error{
 	return c.JSON(200, "High performance, minimalist Go web framework running")
+}
+
+func ConvertToMD5(value string) string{
+	var str string = value
+	hasher := md5.New()
+	hasher.Write([]byte(str))
+	converId := hex.EncodeToString(hasher.Sum(nil))
+
+	return converId
 }
 
 func ConvertStringToInt(value string) int{

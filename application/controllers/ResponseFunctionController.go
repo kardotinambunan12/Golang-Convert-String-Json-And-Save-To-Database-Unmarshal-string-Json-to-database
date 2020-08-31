@@ -15,6 +15,11 @@ var status_304  = response_json{
 	"code"		: "304",
 	"message"	: "not_modified",
 }
+var status_400 = response_json{
+	"code"		: "400",
+	"message"	: "bad_request",
+}
+
 var status_401 = response_json{
 	"code"		: "401",
 	"message"	: "unauthorized",

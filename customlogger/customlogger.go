@@ -28,7 +28,7 @@ func GetUser() string {
 func GetInstance(userlog string) *logger {
 	SetUser(userlog)
 	once.Do(func() {
-		logg = createLogger("logs/martin.log", GetUser())
+		logg = createLogger("logs/Batak.log", GetUser())
 	})
 	return logg
 }

@@ -8,60 +8,60 @@ import (
 	"github.com/labstack/echo"
 )
 
-func GetUsersController(c echo.Context) error {
-	db := database.CreateCon()
-	defer db.Close()
+// func GetUsersController(c echo.Context) error {
+// 	db := database.CreateCon()
+// 	defer db.Close()
 
-	rows, err := db.Raw("SELECT id, first_name, last_name, alamat, zip_code FROM tb_user").Rows()
-	if err != nil {
-		logs.Println(err)
-		internal_server_error(c)
-		return nil
-	}
-	defer rows.Close()
+// 	rows, err := db.Raw("SELECT id, first_name, last_name, alamat, zip_code FROM tb_user").Rows()
+// 	if err != nil {
+// 		logs.Println(err)
+// 		internal_server_error(c)
+// 		return nil
+// 	}
+// 	defer rows.Close()
 
-	each   := models.MasterUser{}
-	result := []models.MasterUser{}
+// 	each   := models.MasterUser{}
+// 	result := []models.MasterUser{}
 
-	for rows.Next() {
+// 	for rows.Next() {
 
-		var id, first_name, last_name, alamat, zip_code[]byte
-		err  := rows.Scan(&id, &first_name, &last_name, &alamat, &zip_code)
-		if err != nil {
-			logs.Println(err)
-			internal_server_error(c)
-			return nil
-		}
+// 		var id, first_name, last_name, alamat, zip_code[]byte
+// 		err  := rows.Scan(&id, &first_name, &last_name, &alamat, &zip_code)
+// 		if err != nil {
+// 			logs.Println(err)
+// 			internal_server_error(c)
+// 			return nil
+// 		}
 
-		var str string = string(id)
-		hasher := md5.New()
-		hasher.Write([]byte(str))
-		converId := hex.EncodeToString(hasher.Sum(nil))
+// 		var str string = string(id)
+// 		hasher := md5.New()
+// 		hasher.Write([]byte(str))
+// 		converId := hex.EncodeToString(hasher.Sum(nil))
 
-		each.Id         = string(id)
-		each.First_name = string(first_name)
-		each.Last_name  = string(last_name)
-		each.Alamat     = string(alamat)
-		each.Zip_code   =string (zip_code)
-		each.Additional = converId
+// 		each.Id         = string(id)
+// 		each.First_name = string(first_name)
+// 		each.Last_name  = string(last_name)
+// 		each.Alamat     = string(alamat)
+// 		each.Zip_code   =string (zip_code)
+// 		each.Additional = converId
 
-		result          = append(result, each)
-	}
-	response     := response_json{
-		"data"   :   result,
-		"status" :   status_200,
-	}
-	return c.JSON(http	.StatusOK, response)
-}
+// 		result          = append(result, each)
+// 	}
+// 	response     := response_json{
+// 		"data"   :   result,
+// 		"status" :   status_200,
+// 	}
+// 	return c.JSON(http	.StatusOK, response)
+// }
 
 func AddUserController(c echo.Context) error{
 	db := database.CreateCon()
 	defer db.Close()
 
 	first_name     := c.FormValue("first_name")
-	last_name 	  := c.FormValue("last_name")
-	alamat      := c.FormValue("alamat")
-	zip_code   := c.FormValue("zip_code")
+	last_name 	   := c.FormValue("last_name")
+	alamat         := c.FormValue("alamat")
+	zip_code       := c.FormValue("zip_code")
 	//zip_code,_     := strconv.Atoi(c.FormValue("zip_code"))
 
 
